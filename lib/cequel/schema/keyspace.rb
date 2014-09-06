@@ -36,6 +36,9 @@ module Cequel
       #   CQL3 CREATE KEYSPACE documentation
       #
       def create!(options = {})
+        puts options.inspect
+        puts keyspace.configuration.inspect
+        puts caller
         bare_connection =
           Metal::Keyspace.new(keyspace.configuration.except(:keyspace))
 
