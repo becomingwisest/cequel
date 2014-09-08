@@ -13,7 +13,7 @@ describe Cequel::Schema::Keyspace do
         expect(connection).to receive(:execute).with do |statement|
           expect(statement).to include("'class': 'SimpleStrategy'")
         end
-        subject.create!
+        subject.create!({})
       end
     end
     context "when settings are passed via keyspace configuration file" do
