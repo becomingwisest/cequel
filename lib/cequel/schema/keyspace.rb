@@ -41,11 +41,10 @@ module Cequel
 
         options = options.symbolize_keys
         options[:class] ||= keyspace.configuration[:strategy_class]
+        options.reverse_merge!(keyspace.configuration[:strategy_options])
         options[:class] ||= 'SimpleStrategy'
         if options[:class] == 'SimpleStrategy'
           options[:replication_factor] ||= 1
-        else
-          options.reverse_merge!(keyspace.configuration[:strategy_options])
         end
         options_strs = options.map do |name, value|
           "'#{name}': #{Cequel::Type.quote(value)}"
