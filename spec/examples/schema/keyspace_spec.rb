@@ -3,10 +3,10 @@ require_relative '../spec_helper'
 
 describe Cequel::Schema::Keyspace do
   describe "#create!" do
-    let(:connection) { double(Metal::Keyspace) }
+    let(:connection) { double(Cequel::Metal::Keyspace) }
     let(:keyspace) { double('keyspace', name: nil)}
     before do
-      allow(Metal::Keyspace).to receive(:new).and_return(connection)
+      allow(Cequel::Metal::Keyspace).to receive(:new).and_return(connection)
     end
     context "when no strategy_class is specified in the keyspace configuration file" do
       it 'creates a keyspace of SimpleStrategy class' do
