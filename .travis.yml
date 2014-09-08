@@ -1,14 +1,14 @@
 language: ruby
 rvm:
   - "2.1"
-  - "2.0"
-  - "1.9.3"
+#  - "2.0"
+#  - "1.9.3"
   - "rbx-2.2"
-  - "jruby-1.7"
+#  - "jruby-1.7"
 gemfile:
-  - "gemfiles/rails_3.1.gemfile"
-  - "gemfiles/rails_3.2.gemfile"
-  - "gemfiles/rails_4.0.gemfile"
+#  - "gemfiles/rails_3.1.gemfile"
+#  - "gemfiles/rails_3.2.gemfile"
+#  - "gemfiles/rails_4.0.gemfile"
   - "gemfiles/rails_4.1.gemfile"
 script: 'bundle exec rspec spec/examples/schema/keyspace_spec.rb'
 before_install:
