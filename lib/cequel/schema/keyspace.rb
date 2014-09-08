@@ -40,9 +40,9 @@ module Cequel
           Metal::Keyspace.new(keyspace.configuration.except(:keyspace))
 
         options = options.symbolize_keys
-        options[:class] ||= keyspace.configuration[:strategy_class]
-        options.reverse_merge!(keyspace.configuration[:strategy_options])
-        options[:class] ||= 'SimpleStrategy'
+        strategy_options = keyspace.configuration[:strategy_options] || {}
+        options[:class] ||= keyspace.configuration[:strategy_class] || 'SimpleStrategy'
+        options.reverse_merge!(strategy_options)
         if options[:class] == 'SimpleStrategy'
           options[:replication_factor] ||= 1
         end
